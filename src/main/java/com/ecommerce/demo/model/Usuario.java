@@ -2,13 +2,13 @@ package com.ecommerce.demo.model;
 
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "usuarios")
@@ -136,6 +136,16 @@ public class Usuario {
 
 	public void setProductos(List<Producto> productos) {
 		this.productos = productos;
+	}
+
+
+	public List<Orden> getOrdenes() {
+		return ordenes;
+	}
+
+
+	public void setOrdenes(List<Orden> ordenes) {
+		this.ordenes = ordenes;
 	}
 	
 	
