@@ -3,6 +3,8 @@ package com.ecommerce.demo.model;
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,7 +16,10 @@ public class Orden {
 	private Date FechaDeRecibida;
 	
 	private double total;
+	@ManyToOne
 	private Usuario usuario;
+	@OneToOne(mappedBy = "orden")
+	private DetalleOrden detalle;
 	
 	public Orden() {
 	
@@ -75,6 +80,14 @@ public class Orden {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public DetalleOrden getDetalle() {
+		return detalle;
+	}
+
+	public void setDetalle(DetalleOrden detalle) {
+		this.detalle = detalle;
 	}
 
 	@Override

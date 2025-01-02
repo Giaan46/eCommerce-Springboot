@@ -27,6 +27,8 @@ public class Usuario {
 	private String password;
 	@OneToMany(mappedBy =  "usuarios")
 	private List<Producto> productos;
+	@OneToMany(mappedBy =  "usuarios")
+	private List<Orden> ordenes;
 	
 	public Usuario(int id, String nombre, String username, String email, String direccion, String telefono, String tipo,
 			String password) {
