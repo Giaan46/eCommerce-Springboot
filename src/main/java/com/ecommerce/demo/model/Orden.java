@@ -2,6 +2,11 @@ package com.ecommerce.demo.model;
 
 import java.sql.Date;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "ordenes")
 public class Orden {
 	private int id;
 	private String numero;
@@ -9,6 +14,7 @@ public class Orden {
 	private Date FechaDeRecibida;
 	
 	private double total;
+	private Usuario usuario;
 	
 	public Orden() {
 	
@@ -61,6 +67,14 @@ public class Orden {
 
 	public void setTotal(double total) {
 		this.total = total;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override
