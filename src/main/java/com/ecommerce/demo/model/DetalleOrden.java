@@ -7,26 +7,28 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
+
 @Entity
 @Table(name = "detalles")
 public class DetalleOrden {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String nombre;
 	private double cantidad;
 	private double precio;
 	private double total;
-	
+
 	@OneToOne
 	private Orden orden;
 	private Producto producto;
-	
+
 	public DetalleOrden() {
 	}
 
-	public DetalleOrden(int id, String nombre, double cantidad, double precio, double total) {
+	public DetalleOrden(Integer id, String nombre, double cantidad, double precio, double total) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -39,7 +41,7 @@ public class DetalleOrden {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

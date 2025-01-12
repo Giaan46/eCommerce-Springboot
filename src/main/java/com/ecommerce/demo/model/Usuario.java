@@ -10,14 +10,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
+
+
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
-	
+
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	private int id;
+	private Integer id;
 	private String nombre;
 	private String username;
 	private String email;
@@ -25,12 +27,14 @@ public class Usuario {
 	private String telefono;
 	private String tipo;
 	private String password;
-	@OneToMany(mappedBy =  "usuarios")
-	private List<Producto> productos;
-	@OneToMany(mappedBy =  "usuarios")
-	private List<Orden> ordenes;
 	
-	public Usuario(int id, String nombre, String username, String email, String direccion, String telefono, String tipo,
+	@OneToMany(mappedBy =  "usuario")
+	private List<Producto> productos;
+	
+	@OneToMany(mappedBy =  "usuario")
+	private List<Orden> ordenes;
+
+	public Usuario(Integer id, String nombre, String username, String email, String direccion, String telefono, String tipo,
 			String password) {
 		super();
 		this.id = id;
@@ -45,7 +49,7 @@ public class Usuario {
 
 
 	public Usuario() {
-		
+
 	}
 
 
@@ -54,7 +58,7 @@ public class Usuario {
 	}
 
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -147,8 +151,8 @@ public class Usuario {
 	public void setOrdenes(List<Orden> ordenes) {
 		this.ordenes = ordenes;
 	}
-	
-	
-	
-	
+
+
+
+
 }

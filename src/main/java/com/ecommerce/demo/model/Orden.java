@@ -1,32 +1,39 @@
 package com.ecommerce.demo.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 
 @Entity
 @Table(name = "ordenes")
 public class Orden {
-	private int id;
+	@Id
+	private Integer id;
 	private String numero;
 	private Date fechaCreacion;
 	private Date FechaDeRecibida;
-	
+
 	private double total;
+	
 	@ManyToOne
 	private Usuario usuario;
-	@OneToOne(mappedBy = "orden")
-	private DetalleOrden detalle;
 	
+	@OneToMany(mappedBy = "orden")
+	private List<DetalleOrden> detalle;
+
 	public Orden() {
-	
+
 	}
 
-	public Orden(int id, String numero, Date fechaCreacion, Date fechaDeRecibida, double total) {
+	public Orden(Integer id, String numero, Date fechaCreacion, Date fechaDeRecibida, double total) {
 		super();
 		this.id = id;
 		this.numero = numero;
@@ -39,7 +46,7 @@ public class Orden {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -83,11 +90,13 @@ public class Orden {
 		this.usuario = usuario;
 	}
 
-	public DetalleOrden getDetalle() {
+	
+
+	public List<DetalleOrden> getDetalle() {
 		return detalle;
 	}
 
-	public void setDetalle(DetalleOrden detalle) {
+	public void setDetalle(List<DetalleOrden> detalle) {
 		this.detalle = detalle;
 	}
 
@@ -96,5 +105,5 @@ public class Orden {
 		return "Orden [id=" + id + ", numero=" + numero + ", fechaCreacion=" + fechaCreacion + ", FechaDeRecibida="
 				+ FechaDeRecibida + ", total=" + total + "]";
 	}
- 
+
 }
